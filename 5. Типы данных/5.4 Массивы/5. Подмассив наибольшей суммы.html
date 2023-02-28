@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body></body>
+
+  <script>
+    let numbers = [1, -2, 3, 4, -9, 6];
+
+    function getMaxSubSum(arr) {
+      let maxSum = 0;
+      let partSum = 0;
+
+      for (let item of arr) {
+        partSum += item;
+        maxSum = Math.max(maxSum, partSum);
+        if (partSum < 0) partSum = 0;
+      }
+
+      return maxSum;
+    }
+
+    alert(getMaxSubSum(numbers));
+  </script>
+</html>

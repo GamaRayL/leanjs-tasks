@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body></body>
+
+  <script>
+    // Выведет 4. Мы ссылаемся на один и тот же массив, только под другим именем.
+    let fruits = ['Яблоки', 'Груша', 'Апельсин'];
+
+    let shoppingCart = fruits;
+    shoppingCart.push('Банан');
+
+    alert(fruits.length);
+  </script>
+</html>

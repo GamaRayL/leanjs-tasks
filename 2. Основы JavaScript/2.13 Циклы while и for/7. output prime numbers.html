@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body></body>
+
+  <script>
+    let n = 20;
+
+    nextIteration: for (let i = 2; i <= n; i++) {
+      for (let j = 2; j < i; j++) {
+        if (i % j === 0) continue nextIteration;
+        // в случае если любое число из i поделится на числа от 2 до i без остатка,
+        // то continue вёрнет к следующей итерации и так переберёт числа от 2 до n
+      }
+      console.log(i);
+    }
+  </script>
+</html>

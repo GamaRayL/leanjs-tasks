@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <head></head>
+
+  <body></body>
+
+  <script>
+    function getLastDayOfMonth(year, month) {
+      let date = new Date(year, month + 1, 0);
+      return date.getDate();
+    }
+
+    alert(getLastDayOfMonth(2019, 0));
+    alert(getLastDayOfMonth(2017, 1));
+    alert(getLastDayOfMonth(2022, 1));
+  </script>
+</html>

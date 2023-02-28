@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body></body>
+
+  <script>
+    /* Нельзя добавить свойство в строку,
+    так как примитивы не могут хранить дополнительные данные. Выведется undefined */
+
+    let str = 'Привет';
+
+    str.test = 5;
+
+    alert(str.test);
+  </script>
+</html>

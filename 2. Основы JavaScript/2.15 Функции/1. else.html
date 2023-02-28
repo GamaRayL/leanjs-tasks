@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body></body>
+
+  <script>
+    // Разницы не будет.
+
+    function checkAge(age) {
+      if (age > 18) {
+        return true;
+      } else {
+        return confirm('Родители разрешили?');
+      }
+    }
+
+    function checkAge(age) {
+      if (age > 18) {
+        return true;
+      }
+      return confirm('Родители разрешили?');
+    }
+  </script>
+</html>

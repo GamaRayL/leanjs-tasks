@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <head></head>
+
+  <body></body>
+
+  <script>
+    function camelize(str) {
+      return str
+        .split('-')
+        .map((item, index) =>
+          index == 0 ? item : item[0].toUpperCase() + item.slice(1)
+        )
+        .join('');
+    }
+  </script>
+</html>

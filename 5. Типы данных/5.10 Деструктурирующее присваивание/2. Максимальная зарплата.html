@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <head></head>
+
+  <body></body>
+
+  <script>
+    function topSalary(sl) {
+      let max = 0;
+      let maxName = null;
+
+      for (const [name, salary] of Object.entries(sl)) {
+        if (max < salary) {
+          max = salary;
+          maxName = name;
+        }
+      }
+
+      return maxName;
+    }
+  </script>
+</html>

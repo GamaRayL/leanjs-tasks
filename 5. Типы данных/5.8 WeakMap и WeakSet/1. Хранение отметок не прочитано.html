@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <head></head>
+
+  <body></body>
+
+  <script>
+    let messages = [
+      { text: 'Hello', from: 'John' },
+      { text: 'How goes?', from: 'John' },
+      { text: 'See you soon', from: 'Alice' },
+    ];
+
+    let readMessages = new WeakSet();
+
+    readMessages.add(messages[0]);
+    readMessages.add(messages[1]);
+
+    readMessages.add(messages[0]);
+
+    alert('Прочитано сообщение "0" : ' + readMessages.has(messages[0]));
+
+    messages.shift();
+  </script>
+</html>

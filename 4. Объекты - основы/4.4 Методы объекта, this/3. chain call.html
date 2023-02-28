@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body></body>
+
+  <script>
+    let ladder = {
+      step: 0,
+      up() {
+        this.step++;
+        return this;
+      },
+      down() {
+        this.step--;
+        return this;
+      },
+      showStep: function () {
+        alert(this.step);
+        return this;
+      },
+    };
+
+    /* такимим образом выходим из метода в текущий объект.
+ Можно было использовать имя объекта (ladder),
+ но если название изменится, то нужно будет менять его и в методах.
+ Кажется использование this более практичным. */
+
+    console.log(ladder.up().down().up().showStep());
+  </script>
+</html>

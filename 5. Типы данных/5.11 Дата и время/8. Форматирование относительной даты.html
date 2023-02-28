@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <head></head>
+
+  <body></body>
+
+  <script>
+    function formatDate(date) {
+      let month = date.getMonth() + 1;
+      let year = date.getFullYear();
+      let hour = date.getHours();
+      let dayOfMonth = date.getDate();
+      let minutes = date.getMinutes();
+      let difMs = new Date() - date;
+      let difSec = Math.round(difMs / 1000);
+      let difMin = difSec / 60;
+      let difHour = difMin / 60;
+
+      year = year.toString().slice(-2);
+      month = month < 10 ? '0' + month : month;
+      dayOfMonth = dayOfMonth < 10 ? '0' + dayOfMonth : dayOfMonth;
+      hour = hour < 10 ? '0' + hour : hour;
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+
+      if (diffSec < 1) {
+        return 'прямо сейчас';
+      } else if (difMin < 1) {
+        return `${difSec} сек назад`;
+      } else if (difHour < 1) {
+        return `${difMin} мин назад`;
+      } else {
+        return `${dayOfMonth}.${month}.${year} ${hour}:${minutes}`;
+      }
+    }
+  </script>
+</html>

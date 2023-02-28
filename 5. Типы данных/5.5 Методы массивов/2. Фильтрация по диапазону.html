@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <head></head>
+
+  <body></body>
+
+  <script>
+    function filterRange(arr, a, b) {
+      return arr.filter((item) => a <= item && item <= b);
+    }
+
+    let arr = [5, 3, 8, 1];
+
+    let result = filterRange(arr, 1, 4);
+
+    alert(result);
+
+    alert(arr);
+  </script>
+</html>
