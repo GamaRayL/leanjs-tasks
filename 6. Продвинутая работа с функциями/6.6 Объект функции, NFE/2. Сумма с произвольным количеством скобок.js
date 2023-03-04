@@ -1,16 +1,9 @@
 function sum(a) {
-  let currSum = a;
+  const closure = (b) => sum(a + b);
 
-  function someFunc(b) {
-    currSum += b;
-    return someFunc;
-  }
+  closure.valueOf = () => a;
 
-  someFunc.valueOf = function () {
-    return currSum;
-  };
-
-  return someFunc;
+  return closure;
 }
 
 console.log(sum(1)(4) == 5);
