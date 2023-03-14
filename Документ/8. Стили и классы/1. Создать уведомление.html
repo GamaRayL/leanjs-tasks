@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body id="body"></body>
+  <script>
+    function showNotification(options) {
+      let notification = document.createElement('div');
+      notification.className = 'notification';
+      body.append(notification);
+
+      notification.style.cssText = `
+        position: absolute;
+        background-color: yellow;
+        top: ${options.top}px;
+        right: ${options.right}px;
+      `;
+
+      notification.textContent = options.html;
+
+      setTimeout(() => {
+        notification.remove();
+      }, 1500);
+    }
+
+    showNotification({
+      top: 10,
+      right: 10,
+      html: 'Hello!',
+      className: 'welcome',
+    });
+  </script>
+</html>

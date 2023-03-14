@@ -1,0 +1,18 @@
+<html>
+  <body>
+    <div>Пользователи:</div>
+    <ul>
+      <li>Джон</li>
+      <li>Пит</li>
+    </ul>
+  </body>
+  <script>
+    // Если elem – произвольный узел DOM-элемента…
+    // Правда, что elem.lastChild.nextSibling всегда равен null?
+    // Правда, что elem.children[0].previousSibling всегда равен null ?
+
+    // Да. Верно. lastChild всегда последний и не имеет ссылки nextSibling
+    // Нет. Неверно. children[0] - он отбирает узел-элемент,
+    // а previousSibling показывает предыдущий от него узел и он может быть #text
+  </script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="container"></div>
+    <script>
+      let data = {
+        Рыбы: {
+          форель: {},
+          лосось: {},
+        },
+
+        Деревья: {
+          Огромные: {
+            секвойя: {},
+            дуб: {},
+          },
+          Цветковые: {
+            яблоня: {},
+            магнолия: {},
+          },
+        },
+      };
+
+      const container = document.getElementById('container');
+
+      function createTree(elem, obj) {
+        container.append(createTreeDOM(obj));
+      }
+
+      function createTreeDOM(obj) {
+        const ul = document.createElement('ul');
+
+        for (let key in obj) {
+          const li = document.createElement('li');
+          li.innerHTML = key;
+
+          const childrenUl = createTreeDOM(obj[key]);
+          if (childrenUl) {
+            li.append(childrenUl);
+          }
+
+          ul.append(li);
+        }
+
+        return ul;
+      }
+
+      createTree(container, data);
+    </script>
+  </body>
+</html>

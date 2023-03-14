@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+
+      td,
+      th {
+        border: 1px solid #3f3f3f;
+        padding: 4px;
+        text-align: center;
+      }
+
+      th {
+        font-weight: bold;
+        background-color: #000000;
+        color: #ffa600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calendar"></div>
+    <script>
+      let calendar = document.querySelector('.calendar');
+
+      function createCalendar(elem, year, month) {
+        let table = `
+          <table><tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th></tr><tr>
+        `;
+
+        // В JS месяцы идут от 0 до 11, поэтому month - 1
+        let monthJS = month - 1;
+        let d = new Date(year, monthJS);
+
+        // Получает день от 0 до 6 и если день === 0, то день = 7 (-1)
+        function getDay(date) {
+          let day = date.getDay();
+          if (day == 0) day = 7;
+          return day - 1;
+        }
+
+        // Цикл, который добавляет пустые ячейки в начале строки
+        // (только если у нас день недели больше 0).
+        for (let i = 0; i < getDay(d); i++) {
+          table += `<td></td>`;
+        }
+
+        // Цикл, который добавляет новые ячейки с датами.
+        // Цикл остановится если getMonth != monthJS
+        // - это происходит к концу месяца, который изменяется благодаря setDate(getDate + 1).
+        // Также добавляется новая строка, если день == 6.
+        // Ну и setDate обновляет d.getDate на + 1, дабы увеличить дату.
+        do {
+          table += '<td>' + d.getDate() + '</td>';
+
+          if (getDay(d) === 6) {
+            table += '</tr><tr>';
+          }
+
+          d.setDate(d.getDate() + 1);
+        } while (d.getMonth() == monthJS);
+
+        // Если день != 0, то пропускает и не добавляет ячейки.
+        // Цикл, который добавляет пустые ячейки в конец строки.
+        if (getDay(d) != 0) {
+          for (let i = getDay(d); i < 7; i++) {
+            table += '<td></td>';
+          }
+        }
+
+        // Закрытие строки и таблицы.
+        table += '</tr></table>';
+
+        // Присвоение table к innerHTML.
+        elem.innerHTML = table;
+      }
+
+      createCalendar(calendar, 2023, 12);
+    </script>
+  </body>
+</html>

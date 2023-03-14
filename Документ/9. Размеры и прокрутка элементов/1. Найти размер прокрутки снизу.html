@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <div id="elem" style="height: 400px; width: 200px; overflow: scroll">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
+      voluptas aut numquam eveniet optio! Laborum eaque amet sapiente aliquid.
+      Hic, commodi, ea pariatur, doloribus corporis vitae et magni a porro
+      delectus praesentium consequuntur omnis debitis expedita reprehenderit
+      voluptatem. Reiciendis veniam officia ex adipisci eius harum blanditiis
+      labore incidunt atque dolorem quasi hic, id eaque? Amet, minima? Ullam,
+      quod modi? Voluptas odio, excepturi architecto exercitationem eveniet
+      repellendus aut consectetur iure accusamus ex qui? Fugiat ratione eveniet
+      neque aliquam velit deserunt natus corrupti est vero minima rerum placeat,
+      eum obcaecati tenetur nam sequi laboriosam et veniam rem itaque facere.
+      Est, odio necessitatibus!
+    </div>
+  </body>
+  <script>
+    let scrollBottom = document.getElementById('elem');
+    scrollBottom.addEventListener('scroll', () => {
+      console.log(
+        scrollBottom.scrollHeight -
+          scrollBottom.scrollTop -
+          scrollBottom.clientHeight
+      );
+    });
+  </script>
+</html>

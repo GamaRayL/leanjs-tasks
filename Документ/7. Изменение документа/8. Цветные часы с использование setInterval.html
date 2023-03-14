@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .info {
+        display: flex;
+      }
+      .hours {
+        color: red;
+      }
+      .minutes {
+        color: green;
+      }
+      .seconds {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="info">
+        <span class="hours">hh</span>
+        <span class="minutes">:mm</span>
+        <span class="seconds">:ss</span>
+      </div>
+      <button class="start">Start</button>
+      <button class="stop">Stop</button>
+    </div>
+
+    <script>
+      // Получаем элементы и присваиваем им значения
+      let hh = document.querySelector('.hours');
+      let mm = document.querySelector('.minutes');
+      let ss = document.querySelector('.seconds');
+      let startBtn = document.querySelector('.start');
+      let stopBtn = document.querySelector('.stop');
+
+      // Вешаем слушатели событий
+      startBtn.addEventListener('click', clockStart);
+      stopBtn.addEventListener('click', clockStart);
+
+      // Добавляем 0 к числу, если оно меньше 10.
+      // Если время 12:54:1, то сделает его 12:54:01
+      function addZero(i) {
+        if (i < 10) {
+          i = '0' + i;
+        }
+        return i;
+      }
+
+      // Функция установки времени в елементы
+      function setCurrTime() {
+        let currDate = new Date();
+
+        hh.textContent = addZero(currDate.getHours());
+        mm.textContent = `:${addZero(currDate.getMinutes())}`;
+        ss.textContent = `:${addZero(currDate.getSeconds())}`;
+      }
+
+      let timer;
+
+      // Функция старта "установки времени"
+      function clockStart() {
+        if (!timer) {
+          timer = setInterval(setCurrTime, 1000);
+        }
+        setCurrTime();
+      }
+
+      // Функция остановки "установки времени"
+      function clockStop() {
+        clearInterval(timer);
+        timer = null;
+      }
+    </script>
+  </body>
+</html>

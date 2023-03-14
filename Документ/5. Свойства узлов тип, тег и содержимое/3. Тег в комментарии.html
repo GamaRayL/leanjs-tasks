@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      let body = document.body;
+
+      body.innerHTML = '<!--' + body.tagName + '-->';
+
+      console.log(body.firstChild.data);
+      // выведет BODY, так как мы вставили коммент через innerHTML,
+      // а после получили его data(внутренности)
+    </script>
+  </body>
+</html>

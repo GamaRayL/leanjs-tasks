@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <ul class="list"></ul>
+    <script>
+      let list = document.querySelector('.list');
+
+      function addToList() {
+        do {
+          let value = prompt('Введите пункт в список', '');
+
+          if (value === null || value.trim() === '') break;
+
+          let li = document.createElement('li');
+          li.textContent = value;
+          list.append(li);
+        } while (true);
+      }
+
+      addToList();
+    </script>
+  </body>
+</html>
