@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <input type="button" id="button" value="Нажмите, чтобы спрятать" />
+
+    <script>
+      // 1 и 2 сработают, так как функции внутри них независимы. Первый выведет '1', второй - удалит несуществующий '1'.
+      // 3 сработает.
+      // Итог: выведут 1 и 2
+      button.addEventListener('click', () => alert('1'));
+
+      button.removeEventListener('click', () => alert('1'));
+
+      button.onclick = () => alert(2);
+    </script>
+  </body>
+</html>
