@@ -35,10 +35,10 @@
       }
     }
 
+    //
     class ExtendedClock extends Clock {
-      constructor(options) {
-        super(options);
-        let { precision = 1000 } = options;
+      constructor({ template, precision = 1000 }) {
+        super({ template });
         this.precision = precision;
       }
 
@@ -47,9 +47,11 @@
         this.timer = setInterval(() => this.render(), this.precision);
       }
     }
+
+    //
     let millisecondClock = new ExtendedClock({
       template: 'h:m:s',
-      precision: 1000,
+      precision: 5000,
     });
 
     millisecondClock.start();
